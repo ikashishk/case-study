@@ -2219,19 +2219,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kashish\\.nuget\\packages\\": {}
+    "C:\\Users\\kchamoli\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Kashish\\case-study\\case-study.csproj",
+      "projectUniqueName": "D:\\CASE STUDY\\Project\\case-study\\case-study.csproj",
       "projectName": "case-study",
-      "projectPath": "D:\\Kashish\\case-study\\case-study.csproj",
-      "packagesPath": "C:\\Users\\kashish\\.nuget\\packages\\",
-      "outputPath": "D:\\Kashish\\case-study\\obj\\",
+      "projectPath": "D:\\CASE STUDY\\Project\\case-study\\case-study.csproj",
+      "packagesPath": "C:\\Users\\kchamoli\\.nuget\\packages\\",
+      "outputPath": "D:\\CASE STUDY\\Project\\case-study\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kashish\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kchamoli\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
