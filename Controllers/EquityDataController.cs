@@ -30,7 +30,7 @@ public class EquityDataController : ControllerBase
         return Equities == null ? NotFound() : Ok(Equities);
     }
 
-    [HttpPut]
+    [HttpPatch]
     [Route("[action]")]
     public async Task<IActionResult> UpdateEquity(int _SecurityId, CRUDRequestEquity crudRequestEquity)
     {
@@ -99,7 +99,7 @@ public class EquityDataController : ControllerBase
             _Equity.DividendAmount = crudRequestEquity.DividendAmount;
             _Equity.Frequency = crudRequestEquity.Frequency;
             _Equity.DividendType = crudRequestEquity.DividendType;
-            await _DBContext.Equities.AddAsync(_Equity);
+            // await _DBContext.Equities.AddAsync(_Equity);
             await _DBContext.SaveChangesAsync();
             return Ok(_Equity);
         }
