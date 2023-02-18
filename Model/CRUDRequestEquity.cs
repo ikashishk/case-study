@@ -5,11 +5,11 @@ namespace case_study.Model
 {
     public partial class CRUDRequestEquity
     {
-        public int Sid { get; set; }
+        public string Sid { get; set; } = null!;
         public string SecurityName { get; set; } = null!;
         public string? SecurityDescription { get; set; }
-        public bool? HasPosition { get; set; }
-        public bool? IsActiveSecurity { get; set; }
+        public string? HasPosition { get; set; }
+        public string? IsActiveSecurity { get; set; }
         public int? LotSize { get; set; }
         public string? BbgUniqueName { get; set; }
         public string? Cusip { get; set; }
@@ -19,7 +19,7 @@ namespace case_study.Model
         public string? BloombergUniqueId { get; set; }
         public string? BbgGlobalId { get; set; }
         public string? TickerAndExchange { get; set; }
-        public bool? IsAdrFlag { get; set; }
+        public string? IsAdrFlag { get; set; }
         public string? AdrUnderlyingTicker { get; set; }
         public string? AdrUnderlyingCurrency { get; set; }
         public string? SharesPerAdr { get; set; }

@@ -24,7 +24,8 @@ public class EquityDataController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetSecurityByID(int _SecurityID)
+    [Route("[action]")]
+    public async Task<IActionResult> GetSecurityByID(string _SecurityID)
     {
         var Equities = await _DBContext.Equities.FindAsync(_SecurityID);
         return Equities == null ? NotFound() : Ok(Equities);
@@ -32,7 +33,7 @@ public class EquityDataController : ControllerBase
 
     [HttpPatch]
     [Route("[action]")]
-    public async Task<IActionResult> UpdateEquity(int _SecurityId, CRUDRequestEquity crudRequestEquity)
+    public async Task<IActionResult> UpdateEquity(string _SecurityId, CRUDRequestEquity crudRequestEquity)
     {
         var _Equity = await _DBContext.Equities.FindAsync(_SecurityId);
         if (_Equity != null)
@@ -116,7 +117,7 @@ public class EquityDataController : ControllerBase
 
 
 
-//  create equity is still remaining
+    //  create equity is still remaining
 
 
 
@@ -203,7 +204,7 @@ public class EquityDataController : ControllerBase
     [HttpDelete]
     [Route("[action]")]
 
-    public async Task<IActionResult> DeleteSecurityByID(int _SecurityID)
+    public async Task<IActionResult> DeleteSecurityByID(string _SecurityID)
     {
         var Equities = await _DBContext.Equities.FindAsync(_SecurityID);
         if (Equities != null)

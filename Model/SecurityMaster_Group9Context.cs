@@ -25,7 +25,7 @@ namespace case_study.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-// #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server = 192.168.0.13\\\\\\\\sqlexpress,58264; Database = SecurityMaster_Group9; User = sa; Password=sa@12345678");
             }
         }
@@ -34,8 +34,7 @@ namespace case_study.Model
         {
             modelBuilder.Entity<AuditBond>(entity =>
             {
-                entity.HasKey(e => e.BondId)
-                    .HasName("PK__Audit_Bo__2A2EFDE3330323AA");
+                entity.HasNoKey();
 
                 entity.ToTable("Audit_Bonds");
 
@@ -505,507 +504,322 @@ namespace case_study.Model
 
                 entity.ToTable("Audit_Equity");
 
-                entity.Property(e => e.EquityId)
-                    .HasMaxLength(100)
+                entity.Property(e => e.NewAdrunderlyingCurrency)
+                    .HasMaxLength(125)
                     .IsUnicode(false)
-                    .HasColumnName("Equity_id");
+                    .HasColumnName("NewADRUnderlyingCurrency");
 
-                entity.Property(e => e.NewAdrUnderlyingCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_ADR_Underlying_Currency");
+                entity.Property(e => e.NewAdrunderlyingTicker)
+                    .HasMaxLength(125)
+                    .HasColumnName("NewADRUnderlyingTicker");
 
-                entity.Property(e => e.NewAdrUnderlyingTicker)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_ADR_Underlying_Ticker");
+                entity.Property(e => e.NewBbgglobalId)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewBBGGlobalID");
 
-                entity.Property(e => e.NewAskPrice).HasColumnName("New_Ask_Price");
+                entity.Property(e => e.NewBbgindustryGroup)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewBBGIndustryGroup");
 
-                entity.Property(e => e.NewAvgVol20d).HasColumnName("New_Avg_Vol_20D");
+                entity.Property(e => e.NewBbgindustrySector)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewBBGIndustrySector");
 
-                entity.Property(e => e.NewBbgGlobalId)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_BBG_GlobalID");
+                entity.Property(e => e.NewBbgindustrySubGroup)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewBBGIndustrySubGroup");
 
-                entity.Property(e => e.NewBbgIndustryGroup)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_BBG_Industry_Group");
+                entity.Property(e => e.NewBbgticker)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewBBGTicker");
 
-                entity.Property(e => e.NewBbgIndustrySubGroup)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_BBG_Industry_SubGroup");
+                entity.Property(e => e.NewBbgtickerExchange)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewBBGTickerExchange");
 
-                entity.Property(e => e.NewBbgSector)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_BBG_Sector");
+                entity.Property(e => e.NewBbguniqueId)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewBBGUniqueID");
 
-                entity.Property(e => e.NewBbgUniqueId)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_BBG_UniqueID");
+                entity.Property(e => e.NewBbguniqueName)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewBBGUniqueName");
 
-                entity.Property(e => e.NewBbgUniqueName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_BBG_Unique_Name");
-
-                entity.Property(e => e.NewBeta).HasColumnName("New_Beta");
-
-                entity.Property(e => e.NewBidPrice).HasColumnName("New_Bid_Price");
-
-                entity.Property(e => e.NewBloombergTicker)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Bloomberg_Ticker");
-
-                entity.Property(e => e.NewClosePrice).HasColumnName("New_Close_Price");
-
-                entity.Property(e => e.NewCountryOfIncorporation)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Country_Of_Incorporation");
+                entity.Property(e => e.NewBeta).HasMaxLength(150);
 
                 entity.Property(e => e.NewCusip)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_CUSIP");
+                    .HasMaxLength(150)
+                    .HasColumnName("NewCUSIP");
 
-                entity.Property(e => e.NewDividendAmount).HasColumnName("New_Dividend_Amount");
+                entity.Property(e => e.NewDividendType).HasMaxLength(130);
 
-                entity.Property(e => e.NewDividendDeclaredDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("New_Dividend_Declared_Date");
+                entity.Property(e => e.NewExchange).HasMaxLength(160);
 
-                entity.Property(e => e.NewDividendExDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("New_Dividend_Ex_date");
+                entity.Property(e => e.NewFormPfassetClass)
+                    .HasMaxLength(110)
+                    .HasColumnName("NewFormPFAssetClass");
 
-                entity.Property(e => e.NewDividendPayDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("New_Dividend_Pay_date");
+                entity.Property(e => e.NewFormPfcountry)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewFormPFCountry");
 
-                entity.Property(e => e.NewDividendRecordDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("New_Dividend_Record_date");
+                entity.Property(e => e.NewFormPfcreditRating)
+                    .HasMaxLength(120)
+                    .HasColumnName("NewFormPFCreditRating");
 
-                entity.Property(e => e.NewDividendType)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Dividend_Type");
+                entity.Property(e => e.NewFormPfcurrency)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewFormPFCurrency");
 
-                entity.Property(e => e.NewExchange)
-                    .HasMaxLength(60)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Exchange");
+                entity.Property(e => e.NewFormPfinstrument)
+                    .HasMaxLength(120)
+                    .HasColumnName("NewFormPFInstrument");
 
-                entity.Property(e => e.NewFrequency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Frequency");
+                entity.Property(e => e.NewFormPfliquidityProfile)
+                    .HasMaxLength(130)
+                    .HasColumnName("NewFormPFLiquidityProfile");
 
-                entity.Property(e => e.NewHasPosistion).HasColumnName("New_Has_Posistion");
+                entity.Property(e => e.NewFormPfmaturity)
+                    .HasMaxLength(120)
+                    .HasColumnName("NewFormPFMaturity");
 
-                entity.Property(e => e.NewIpoDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("New_IPO_Date");
+                entity.Property(e => e.NewFormPfnaicscode)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewFormPFNAICSCode");
 
-                entity.Property(e => e.NewIsActive).HasColumnName("New_Is_Active");
+                entity.Property(e => e.NewFormPfregion)
+                    .HasMaxLength(100)
+                    .HasColumnName("NewFormPFRegion");
 
-                entity.Property(e => e.NewIsAdr).HasColumnName("New_Is_ADR");
+                entity.Property(e => e.NewFormPfsector)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewFormPFSector");
+
+                entity.Property(e => e.NewFormPfsubAssetClass)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewFormPFSubAssetClass");
+
+                entity.Property(e => e.NewFrequency).HasMaxLength(120);
+
+                entity.Property(e => e.NewHasPosistion).HasMaxLength(100);
+
+                entity.Property(e => e.NewIncorporationCountry).HasMaxLength(150);
+
+                entity.Property(e => e.NewIpodate)
+                    .HasMaxLength(100)
+                    .HasColumnName("NewIPODate");
+
+                entity.Property(e => e.NewIsActive).HasMaxLength(100);
+
+                entity.Property(e => e.NewIsAdr)
+                    .HasMaxLength(100)
+                    .HasColumnName("NewIsADR");
 
                 entity.Property(e => e.NewIsin)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_ISIN");
+                    .HasMaxLength(150)
+                    .HasColumnName("NewISIN");
 
-                entity.Property(e => e.NewIssueCountry)
-                    .HasMaxLength(30)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Issue_Country");
+                entity.Property(e => e.NewIssueCountry).HasMaxLength(150);
 
-                entity.Property(e => e.NewIssueCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Issue_Currency");
+                entity.Property(e => e.NewIssueCurrency).HasMaxLength(110);
 
-                entity.Property(e => e.NewIssuer)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Issuer");
+                entity.Property(e => e.NewIssuer).HasMaxLength(150);
 
-                entity.Property(e => e.NewLastPrice).HasColumnName("New_Last_Price");
+                entity.Property(e => e.NewPeratio).HasColumnName("NewPERatio");
 
-                entity.Property(e => e.NewLotSize).HasColumnName("New_Lot_Size");
+                entity.Property(e => e.NewPriceCurrency).HasMaxLength(110);
 
-                entity.Property(e => e.NewOpenPrice).HasColumnName("New_Open_Price");
+                entity.Property(e => e.NewRiskCurrency).HasMaxLength(110);
 
-                entity.Property(e => e.NewPeRatio).HasColumnName("New_PE_Ratio");
+                entity.Property(e => e.NewSecurityDescription).HasMaxLength(200);
 
-                entity.Property(e => e.NewPfAssetClass)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Asset_Class");
-
-                entity.Property(e => e.NewPfCountry)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Country");
-
-                entity.Property(e => e.NewPfCreditRating)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Credit_Rating");
-
-                entity.Property(e => e.NewPfCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Currency");
-
-                entity.Property(e => e.NewPfInstrument)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Instrument");
-
-                entity.Property(e => e.NewPfLiquidityProfile)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Liquidity_Profile");
-
-                entity.Property(e => e.NewPfMaturity)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Maturity");
-
-                entity.Property(e => e.NewPfNaicsCode)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_NAICS_Code");
-
-                entity.Property(e => e.NewPfRegion)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Region");
-
-                entity.Property(e => e.NewPfSector)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Sector");
-
-                entity.Property(e => e.NewPfSubAssetClass)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_PF_Sub_AssetClass");
-
-                entity.Property(e => e.NewPricingCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Pricing_Currency");
-
-                entity.Property(e => e.NewReturnYtd).HasColumnName("New_Return_YTD");
-
-                entity.Property(e => e.NewRiskCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Risk_Currency");
-
-                entity.Property(e => e.NewSecurityDescription)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Security_Description");
-
-                entity.Property(e => e.NewSecurityName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Security_Name");
+                entity.Property(e => e.NewSecurityName).HasMaxLength(150);
 
                 entity.Property(e => e.NewSedol)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_SEDOL");
-
-                entity.Property(e => e.NewSettleDays).HasColumnName("New_Settle_Days");
+                    .HasMaxLength(150)
+                    .HasColumnName("NewSEDOL");
 
                 entity.Property(e => e.NewSharesPerAdr)
-                    .HasMaxLength(50)
+                    .HasMaxLength(125)
+                    .HasColumnName("NewSharesPerADR");
+
+                entity.Property(e => e.NewShortInterest).HasMaxLength(150);
+
+                entity.Property(e => e.NewTradingCurrency).HasMaxLength(110);
+
+                entity.Property(e => e.NewTwentyDayAvgVol).HasMaxLength(150);
+
+                entity.Property(e => e.NewVolume).HasMaxLength(100);
+
+                entity.Property(e => e.NewVotingRightsPerShare).HasMaxLength(150);
+
+                entity.Property(e => e.NewYtdreturn)
+                    .HasMaxLength(150)
+                    .HasColumnName("NewYTDReturn");
+
+                entity.Property(e => e.OldAdrunderlyingCurrency)
+                    .HasMaxLength(125)
                     .IsUnicode(false)
-                    .HasColumnName("New_Shares_Per_ADR");
+                    .HasColumnName("OldADRUnderlyingCurrency");
 
-                entity.Property(e => e.NewShortIntrest).HasColumnName("New_Short_Intrest");
+                entity.Property(e => e.OldAdrunderlyingTicker)
+                    .HasMaxLength(125)
+                    .HasColumnName("OldADRUnderlyingTicker");
 
-                entity.Property(e => e.NewTickerAndExcahnge)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Ticker_and_Excahnge");
+                entity.Property(e => e.OldBbgglobalId)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldBBGGlobalID");
 
-                entity.Property(e => e.NewTotalSharesOutstading).HasColumnName("New_Total_Shares_Outstading");
+                entity.Property(e => e.OldBbgindustryGroup)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldBBGIndustryGroup");
 
-                entity.Property(e => e.NewTradingCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("New_Trading_Currency");
+                entity.Property(e => e.OldBbgindustrySector)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldBBGIndustrySector");
 
-                entity.Property(e => e.NewVolatility90d).HasColumnName("New_Volatility_90D");
+                entity.Property(e => e.OldBbgindustrySubGroup)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldBBGIndustrySubGroup");
 
-                entity.Property(e => e.NewVolume).HasColumnName("New_Volume");
+                entity.Property(e => e.OldBbgticker)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldBBGTicker");
 
-                entity.Property(e => e.NewVotingRightsPerShare).HasColumnName("New_Voting_Rights_Per_Share");
+                entity.Property(e => e.OldBbgtickerExchange)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldBBGTickerExchange");
 
-                entity.Property(e => e.OldAdrUnderlyingCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_ADR_Underlying_Currency");
+                entity.Property(e => e.OldBbguniqueId)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldBBGUniqueID");
 
-                entity.Property(e => e.OldAdrUnderlyingTicker)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_ADR_Underlying_Ticker");
+                entity.Property(e => e.OldBbguniqueName)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldBBGUniqueName");
 
-                entity.Property(e => e.OldAskPrice).HasColumnName("Old_Ask_Price");
-
-                entity.Property(e => e.OldAvgVol20d).HasColumnName("Old_Avg_Vol_20D");
-
-                entity.Property(e => e.OldBbgGlobalId)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_BBG_GlobalID");
-
-                entity.Property(e => e.OldBbgIndustryGroup)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_BBG_Industry_Group");
-
-                entity.Property(e => e.OldBbgIndustrySubGroup)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_BBG_Industry_SubGroup");
-
-                entity.Property(e => e.OldBbgSector)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_BBG_Sector");
-
-                entity.Property(e => e.OldBbgUniqueId)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_BBG_UniqueID");
-
-                entity.Property(e => e.OldBbgUniqueName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_BBG_Unique_Name");
-
-                entity.Property(e => e.OldBeta).HasColumnName("Old_Beta");
-
-                entity.Property(e => e.OldBidPrice).HasColumnName("Old_Bid_Price");
-
-                entity.Property(e => e.OldBloombergTicker)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Bloomberg_Ticker");
-
-                entity.Property(e => e.OldClosePrice).HasColumnName("Old_Close_Price");
-
-                entity.Property(e => e.OldCountryOfIncorporation)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Country_Of_Incorporation");
+                entity.Property(e => e.OldBeta).HasMaxLength(150);
 
                 entity.Property(e => e.OldCusip)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_CUSIP");
+                    .HasMaxLength(150)
+                    .HasColumnName("OldCUSIP");
 
-                entity.Property(e => e.OldDividendAmount).HasColumnName("Old_Dividend_Amount");
+                entity.Property(e => e.OldDividendType).HasMaxLength(130);
 
-                entity.Property(e => e.OldDividendDeclaredDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Old_Dividend_Declared_Date");
+                entity.Property(e => e.OldExchange).HasMaxLength(160);
 
-                entity.Property(e => e.OldDividendExDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Old_Dividend_Ex_date");
+                entity.Property(e => e.OldFormPfassetClass)
+                    .HasMaxLength(110)
+                    .HasColumnName("OldFormPFAssetClass");
 
-                entity.Property(e => e.OldDividendPayDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Old_Dividend_Pay_date");
+                entity.Property(e => e.OldFormPfcountry)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldFormPFCountry");
 
-                entity.Property(e => e.OldDividendRecordDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Old_Dividend_Record_date");
+                entity.Property(e => e.OldFormPfcreditRating)
+                    .HasMaxLength(120)
+                    .HasColumnName("OldFormPFCreditRating");
 
-                entity.Property(e => e.OldDividendType)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Dividend_Type");
+                entity.Property(e => e.OldFormPfcurrency)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldFormPFCurrency");
 
-                entity.Property(e => e.OldExchange)
-                    .HasMaxLength(60)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Exchange");
+                entity.Property(e => e.OldFormPfinstrument)
+                    .HasMaxLength(120)
+                    .HasColumnName("OldFormPFInstrument");
 
-                entity.Property(e => e.OldFrequency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Frequency");
+                entity.Property(e => e.OldFormPfliquidityProfile)
+                    .HasMaxLength(130)
+                    .HasColumnName("OldFormPFLiquidityProfile");
 
-                entity.Property(e => e.OldHasPosistion).HasColumnName("Old_Has_Posistion");
+                entity.Property(e => e.OldFormPfmaturity)
+                    .HasMaxLength(120)
+                    .HasColumnName("OldFormPFMaturity");
 
-                entity.Property(e => e.OldIpoDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Old_IPO_Date");
+                entity.Property(e => e.OldFormPfnaicscode)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldFormPFNAICSCode");
 
-                entity.Property(e => e.OldIsActive).HasColumnName("Old_Is_Active");
+                entity.Property(e => e.OldFormPfregion)
+                    .HasMaxLength(100)
+                    .HasColumnName("OldFormPFRegion");
 
-                entity.Property(e => e.OldIsAdr).HasColumnName("OLd_Is_ADR");
+                entity.Property(e => e.OldFormPfsector)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldFormPFSector");
+
+                entity.Property(e => e.OldFormPfsubAssetClass)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldFormPFSubAssetClass");
+
+                entity.Property(e => e.OldFrequency).HasMaxLength(120);
+
+                entity.Property(e => e.OldHasPosistion).HasMaxLength(100);
+
+                entity.Property(e => e.OldIncorporationCountry).HasMaxLength(150);
+
+                entity.Property(e => e.OldIpodate)
+                    .HasMaxLength(100)
+                    .HasColumnName("OldIPODate");
+
+                entity.Property(e => e.OldIsActive).HasMaxLength(100);
+
+                entity.Property(e => e.OldIsAdr)
+                    .HasMaxLength(100)
+                    .HasColumnName("OldIsADR");
 
                 entity.Property(e => e.OldIsin)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_ISIN");
+                    .HasMaxLength(150)
+                    .HasColumnName("OldISIN");
 
-                entity.Property(e => e.OldIssueCountry)
-                    .HasMaxLength(30)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Issue_Country");
+                entity.Property(e => e.OldIssueCountry).HasMaxLength(150);
 
-                entity.Property(e => e.OldIssueCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Issue_Currency");
+                entity.Property(e => e.OldIssueCurrency).HasMaxLength(110);
 
-                entity.Property(e => e.OldIssuer)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Issuer");
+                entity.Property(e => e.OldIssuer).HasMaxLength(150);
 
-                entity.Property(e => e.OldLastPrice).HasColumnName("Old_Last_Price");
+                entity.Property(e => e.OldPeratio).HasColumnName("OldPERatio");
 
-                entity.Property(e => e.OldLotSize).HasColumnName("Old_Lot_Size");
+                entity.Property(e => e.OldPriceCurrency).HasMaxLength(110);
 
-                entity.Property(e => e.OldOpenPrice).HasColumnName("Old_Open_Price");
+                entity.Property(e => e.OldRiskCurrency).HasMaxLength(110);
 
-                entity.Property(e => e.OldPeRatio).HasColumnName("Old_PE_Ratio");
+                entity.Property(e => e.OldSecurityDescription).HasMaxLength(200);
 
-                entity.Property(e => e.OldPfAssetClass)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Asset_Class");
-
-                entity.Property(e => e.OldPfCountry)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Country");
-
-                entity.Property(e => e.OldPfCreditRating)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Credit_Rating");
-
-                entity.Property(e => e.OldPfCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Currency");
-
-                entity.Property(e => e.OldPfInstrument)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Instrument");
-
-                entity.Property(e => e.OldPfLiquidityProfile)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Liquidity_Profile");
-
-                entity.Property(e => e.OldPfMaturity)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Maturity");
-
-                entity.Property(e => e.OldPfNaicsCode)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_NAICS_Code");
-
-                entity.Property(e => e.OldPfRegion)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Region");
-
-                entity.Property(e => e.OldPfSector)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Sector");
-
-                entity.Property(e => e.OldPfSubAssetClass)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_PF_Sub_AssetClass");
-
-                entity.Property(e => e.OldPricingCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Pricing_Currency");
-
-                entity.Property(e => e.OldReturnYtd).HasColumnName("Old_Return_YTD");
-
-                entity.Property(e => e.OldRiskCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Risk_Currency");
-
-                entity.Property(e => e.OldSecurityDescription)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Security_Description");
-
-                entity.Property(e => e.OldSecurityName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Security_Name");
+                entity.Property(e => e.OldSecurityName).HasMaxLength(150);
 
                 entity.Property(e => e.OldSedol)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_SEDOL");
-
-                entity.Property(e => e.OldSettleDays).HasColumnName("Old_Settle_Days");
+                    .HasMaxLength(150)
+                    .HasColumnName("OldSEDOL");
 
                 entity.Property(e => e.OldSharesPerAdr)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Shares_Per_ADR");
+                    .HasMaxLength(125)
+                    .HasColumnName("OldSharesPerADR");
 
-                entity.Property(e => e.OldShortIntrest).HasColumnName("Old_Short_Intrest");
+                entity.Property(e => e.OldShortInterest).HasMaxLength(150);
 
-                entity.Property(e => e.OldTickerAndExcahnge)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Ticker_and_Excahnge");
+                entity.Property(e => e.OldTradingCurrency).HasMaxLength(110);
 
-                entity.Property(e => e.OldTotalSharesOutstading).HasColumnName("Old_Total_Shares_Outstading");
+                entity.Property(e => e.OldTwentyDayAvgVol).HasMaxLength(150);
 
-                entity.Property(e => e.OldTradingCurrency)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("Old_Trading_Currency");
+                entity.Property(e => e.OldVolume).HasMaxLength(100);
 
-                entity.Property(e => e.OldVolatility90d).HasColumnName("Old_Volatility_90D");
+                entity.Property(e => e.OldVotingRightsPerShare).HasMaxLength(150);
 
-                entity.Property(e => e.OldVolume).HasColumnName("Old_Volume");
+                entity.Property(e => e.OldYtdreturn)
+                    .HasMaxLength(150)
+                    .HasColumnName("OldYTDReturn");
 
-                entity.Property(e => e.OldVotingRightsPerShare).HasColumnName("Old_Voting_Rights_Per_Share");
+                entity.Property(e => e.SecurityId)
+                    .HasMaxLength(100)
+                    .HasColumnName("SecurityID");
 
                 entity.Property(e => e.Username)
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.XnAction)
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Xndate).HasColumnType("datetime");
@@ -1233,20 +1047,21 @@ namespace case_study.Model
             modelBuilder.Entity<Equity>(entity =>
             {
                 entity.HasKey(e => e.Sid)
-                    .HasName("PK_Equtiy");
+                    .HasName("PK__Equity__CA195970751E1DB2");
 
                 entity.ToTable("Equity");
 
                 entity.Property(e => e.Sid)
-                    .ValueGeneratedNever()
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
                     .HasColumnName("SID");
 
                 entity.Property(e => e.AdrUnderlyingCurrency)
-                    .HasMaxLength(1)
+                    .HasMaxLength(50)
                     .HasColumnName("ADR_Underlying_Currency");
 
                 entity.Property(e => e.AdrUnderlyingTicker)
-                    .HasMaxLength(1)
+                    .HasMaxLength(100)
                     .HasColumnName("ADR_Underlying_Ticker");
 
                 entity.Property(e => e.AskPrice).HasColumnName("Ask_Price");
@@ -1317,17 +1132,23 @@ namespace case_study.Model
 
                 entity.Property(e => e.Exchange).HasMaxLength(50);
 
-                entity.Property(e => e.Frequency).HasMaxLength(1);
+                entity.Property(e => e.Frequency).HasMaxLength(150);
 
-                entity.Property(e => e.HasPosition).HasColumnName("Has_Position");
+                entity.Property(e => e.HasPosition)
+                    .HasMaxLength(50)
+                    .HasColumnName("Has_Position");
 
                 entity.Property(e => e.IpoDate)
-                    .HasMaxLength(1)
+                    .HasMaxLength(50)
                     .HasColumnName("IPO_Date");
 
-                entity.Property(e => e.IsActiveSecurity).HasColumnName("Is_Active_Security");
+                entity.Property(e => e.IsActiveSecurity)
+                    .HasMaxLength(50)
+                    .HasColumnName("Is_Active_Security");
 
-                entity.Property(e => e.IsAdrFlag).HasColumnName("Is_ADR_Flag");
+                entity.Property(e => e.IsAdrFlag)
+                    .HasMaxLength(50)
+                    .HasColumnName("Is_ADR_Flag");
 
                 entity.Property(e => e.Isin)
                     .HasMaxLength(50)
@@ -1372,7 +1193,7 @@ namespace case_study.Model
                     .HasColumnName("PF_Liquidity_Profile");
 
                 entity.Property(e => e.PfMaturity)
-                    .HasMaxLength(1)
+                    .HasMaxLength(50)
                     .HasColumnName("PF_Maturity");
 
                 entity.Property(e => e.PfNaicsCode)
@@ -1384,7 +1205,7 @@ namespace case_study.Model
                     .HasColumnName("PF_Region");
 
                 entity.Property(e => e.PfSector)
-                    .HasMaxLength(1)
+                    .HasMaxLength(50)
                     .HasColumnName("PF_Sector");
 
                 entity.Property(e => e.PfSubAssetClass)
@@ -1418,7 +1239,7 @@ namespace case_study.Model
                 entity.Property(e => e.SettleDays).HasColumnName("Settle_Days");
 
                 entity.Property(e => e.SharesPerAdr)
-                    .HasMaxLength(1)
+                    .HasMaxLength(50)
                     .HasColumnName("Shares_Per_ADR");
 
                 entity.Property(e => e.ShortInterest)

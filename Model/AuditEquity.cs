@@ -8,83 +8,83 @@ namespace case_study.Model
         public string? Username { get; set; }
         public DateTime? Xndate { get; set; }
         public string? XnAction { get; set; }
-        public string? EquityId { get; set; }
+        public string? SecurityId { get; set; }
         public string? OldSecurityName { get; set; }
         public string? NewSecurityName { get; set; }
         public string? OldSecurityDescription { get; set; }
         public string? NewSecurityDescription { get; set; }
-        public bool? OldHasPosistion { get; set; }
-        public bool? NewHasPosistion { get; set; }
-        public bool? OldIsActive { get; set; }
-        public bool? NewIsActive { get; set; }
-        public double? OldLotSize { get; set; }
-        public double? NewLotSize { get; set; }
-        public string? OldBbgUniqueName { get; set; }
-        public string? NewBbgUniqueName { get; set; }
+        public string? OldHasPosistion { get; set; }
+        public string? NewHasPosistion { get; set; }
+        public string? OldIsActive { get; set; }
+        public string? NewIsActive { get; set; }
+        public double? OldRoundLotSize { get; set; }
+        public double? NewRoundLotSize { get; set; }
+        public string? OldBbguniqueName { get; set; }
+        public string? NewBbguniqueName { get; set; }
         public string? OldCusip { get; set; }
         public string? NewCusip { get; set; }
         public string? OldIsin { get; set; }
         public string? NewIsin { get; set; }
         public string? OldSedol { get; set; }
         public string? NewSedol { get; set; }
-        public string? OldBloombergTicker { get; set; }
-        public string? NewBloombergTicker { get; set; }
-        public string? OldBbgUniqueId { get; set; }
-        public string? NewBbgUniqueId { get; set; }
-        public string? OldBbgGlobalId { get; set; }
-        public string? NewBbgGlobalId { get; set; }
-        public string? OldTickerAndExcahnge { get; set; }
-        public string? NewTickerAndExcahnge { get; set; }
-        public bool? OldIsAdr { get; set; }
-        public bool? NewIsAdr { get; set; }
-        public string? OldAdrUnderlyingTicker { get; set; }
-        public string? NewAdrUnderlyingTicker { get; set; }
-        public string? OldAdrUnderlyingCurrency { get; set; }
-        public string? NewAdrUnderlyingCurrency { get; set; }
+        public string? OldBbgticker { get; set; }
+        public string? NewBbgticker { get; set; }
+        public string? OldBbguniqueId { get; set; }
+        public string? NewBbguniqueId { get; set; }
+        public string? OldBbgglobalId { get; set; }
+        public string? NewBbgglobalId { get; set; }
+        public string? OldBbgtickerExchange { get; set; }
+        public string? NewBbgtickerExchange { get; set; }
+        public string? OldIsAdr { get; set; }
+        public string? NewIsAdr { get; set; }
+        public string? OldAdrunderlyingTicker { get; set; }
+        public string? NewAdrunderlyingTicker { get; set; }
+        public string? OldAdrunderlyingCurrency { get; set; }
+        public string? NewAdrunderlyingCurrency { get; set; }
         public string? OldSharesPerAdr { get; set; }
         public string? NewSharesPerAdr { get; set; }
-        public DateTime? OldIpoDate { get; set; }
-        public DateTime? NewIpoDate { get; set; }
-        public string? OldPricingCurrency { get; set; }
-        public string? NewPricingCurrency { get; set; }
-        public long? OldSettleDays { get; set; }
-        public long? NewSettleDays { get; set; }
-        public double? OldTotalSharesOutstading { get; set; }
-        public double? NewTotalSharesOutstading { get; set; }
-        public double? OldVotingRightsPerShare { get; set; }
-        public double? NewVotingRightsPerShare { get; set; }
-        public double? OldAvgVol20d { get; set; }
-        public double? NewAvgVol20d { get; set; }
-        public double? OldBeta { get; set; }
-        public double? NewBeta { get; set; }
-        public double? OldShortIntrest { get; set; }
-        public double? NewShortIntrest { get; set; }
-        public double? OldReturnYtd { get; set; }
-        public double? NewReturnYtd { get; set; }
-        public double? OldVolatility90d { get; set; }
-        public double? NewVolatility90d { get; set; }
-        public string? OldPfAssetClass { get; set; }
-        public string? NewPfAssetClass { get; set; }
-        public string? OldPfCountry { get; set; }
-        public string? NewPfCountry { get; set; }
-        public string? OldPfCreditRating { get; set; }
-        public string? NewPfCreditRating { get; set; }
-        public string? OldPfCurrency { get; set; }
-        public string? NewPfCurrency { get; set; }
-        public string? OldPfInstrument { get; set; }
-        public string? NewPfInstrument { get; set; }
-        public string? OldPfLiquidityProfile { get; set; }
-        public string? NewPfLiquidityProfile { get; set; }
-        public string? OldPfMaturity { get; set; }
-        public string? NewPfMaturity { get; set; }
-        public string? OldPfNaicsCode { get; set; }
-        public string? NewPfNaicsCode { get; set; }
-        public string? OldPfRegion { get; set; }
-        public string? NewPfRegion { get; set; }
-        public string? OldPfSector { get; set; }
-        public string? NewPfSector { get; set; }
-        public string? OldPfSubAssetClass { get; set; }
-        public string? NewPfSubAssetClass { get; set; }
+        public string? OldIpodate { get; set; }
+        public string? NewIpodate { get; set; }
+        public string? OldPriceCurrency { get; set; }
+        public string? NewPriceCurrency { get; set; }
+        public int? OldSettleDays { get; set; }
+        public int? NewSettleDays { get; set; }
+        public double? OldSharesOutstading { get; set; }
+        public double? NewSharesOutstading { get; set; }
+        public string? OldVotingRightsPerShare { get; set; }
+        public string? NewVotingRightsPerShare { get; set; }
+        public string? OldTwentyDayAvgVol { get; set; }
+        public string? NewTwentyDayAvgVol { get; set; }
+        public string? OldBeta { get; set; }
+        public string? NewBeta { get; set; }
+        public string? OldShortInterest { get; set; }
+        public string? NewShortInterest { get; set; }
+        public string? OldYtdreturn { get; set; }
+        public string? NewYtdreturn { get; set; }
+        public double? OldNinetyDayPriceVolatility { get; set; }
+        public double? NewNinetyDayPriceVolatility { get; set; }
+        public string? OldFormPfassetClass { get; set; }
+        public string? NewFormPfassetClass { get; set; }
+        public string? OldFormPfcountry { get; set; }
+        public string? NewFormPfcountry { get; set; }
+        public string? OldFormPfcreditRating { get; set; }
+        public string? NewFormPfcreditRating { get; set; }
+        public string? OldFormPfcurrency { get; set; }
+        public string? NewFormPfcurrency { get; set; }
+        public string? OldFormPfinstrument { get; set; }
+        public string? NewFormPfinstrument { get; set; }
+        public string? OldFormPfliquidityProfile { get; set; }
+        public string? NewFormPfliquidityProfile { get; set; }
+        public string? OldFormPfmaturity { get; set; }
+        public string? NewFormPfmaturity { get; set; }
+        public string? OldFormPfnaicscode { get; set; }
+        public string? NewFormPfnaicscode { get; set; }
+        public string? OldFormPfregion { get; set; }
+        public string? NewFormPfregion { get; set; }
+        public string? OldFormPfsector { get; set; }
+        public string? NewFormPfsector { get; set; }
+        public string? OldFormPfsubAssetClass { get; set; }
+        public string? NewFormPfsubAssetClass { get; set; }
         public string? OldIssueCountry { get; set; }
         public string? NewIssueCountry { get; set; }
         public string? OldExchange { get; set; }
@@ -95,40 +95,40 @@ namespace case_study.Model
         public string? NewIssueCurrency { get; set; }
         public string? OldTradingCurrency { get; set; }
         public string? NewTradingCurrency { get; set; }
-        public string? OldBbgIndustrySubGroup { get; set; }
-        public string? NewBbgIndustrySubGroup { get; set; }
-        public string? OldBbgIndustryGroup { get; set; }
-        public string? NewBbgIndustryGroup { get; set; }
-        public string? OldBbgSector { get; set; }
-        public string? NewBbgSector { get; set; }
-        public string? OldCountryOfIncorporation { get; set; }
-        public string? NewCountryOfIncorporation { get; set; }
+        public string? OldBbgindustrySubGroup { get; set; }
+        public string? NewBbgindustrySubGroup { get; set; }
+        public string? OldBbgindustryGroup { get; set; }
+        public string? NewBbgindustryGroup { get; set; }
+        public string? OldBbgindustrySector { get; set; }
+        public string? NewBbgindustrySector { get; set; }
+        public string? OldIncorporationCountry { get; set; }
+        public string? NewIncorporationCountry { get; set; }
         public string? OldRiskCurrency { get; set; }
         public string? NewRiskCurrency { get; set; }
         public double? OldOpenPrice { get; set; }
         public double? NewOpenPrice { get; set; }
         public double? OldClosePrice { get; set; }
         public double? NewClosePrice { get; set; }
-        public double? OldVolume { get; set; }
-        public double? NewVolume { get; set; }
+        public string? OldVolume { get; set; }
+        public string? NewVolume { get; set; }
         public double? OldLastPrice { get; set; }
         public double? NewLastPrice { get; set; }
         public double? OldAskPrice { get; set; }
         public double? NewAskPrice { get; set; }
         public double? OldBidPrice { get; set; }
         public double? NewBidPrice { get; set; }
-        public double? OldPeRatio { get; set; }
-        public double? NewPeRatio { get; set; }
-        public DateTime? OldDividendDeclaredDate { get; set; }
-        public DateTime? NewDividendDeclaredDate { get; set; }
-        public DateTime? OldDividendExDate { get; set; }
-        public DateTime? NewDividendExDate { get; set; }
-        public DateTime? OldDividendRecordDate { get; set; }
-        public DateTime? NewDividendRecordDate { get; set; }
-        public DateTime? OldDividendPayDate { get; set; }
-        public DateTime? NewDividendPayDate { get; set; }
-        public double? OldDividendAmount { get; set; }
-        public double? NewDividendAmount { get; set; }
+        public double? OldPeratio { get; set; }
+        public double? NewPeratio { get; set; }
+        public DateTime? OldDeclaredDate { get; set; }
+        public DateTime? NewDeclaredDate { get; set; }
+        public DateTime? OldExdate { get; set; }
+        public DateTime? NewExdate { get; set; }
+        public DateTime? OldRecorddate { get; set; }
+        public DateTime? NewRecorddate { get; set; }
+        public DateTime? OldPaydate { get; set; }
+        public DateTime? NewPaydate { get; set; }
+        public double? OldAmount { get; set; }
+        public double? NewAmount { get; set; }
         public string? OldFrequency { get; set; }
         public string? NewFrequency { get; set; }
         public string? OldDividendType { get; set; }
