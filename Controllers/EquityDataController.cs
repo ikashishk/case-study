@@ -17,7 +17,8 @@ public class EquityDataController : ControllerBase
         _DBContext.Database.EnsureCreated();
     }
 
-    [HttpGet("getAllEquities")]
+    [HttpGet]
+    [Route("[action]")]
     public async Task<IActionResult> GetAllEquities()
     {
         return Ok(await _DBContext.Equities.ToListAsync());
@@ -31,99 +32,6 @@ public class EquityDataController : ControllerBase
         return Equities == null ? NotFound() : Ok(Equities);
     }
 
-    [HttpPatch]
-    [Route("[action]")]
-    public async Task<IActionResult> UpdateEquity(string _SecurityId, CRUDRequestEquity crudRequestEquity)
-    {
-        var _Equity = await _DBContext.Equities.FindAsync(_SecurityId);
-        if (_Equity != null)
-        {
-            // Sid = Convert.ToInt32(Guid.NewGuid()),
-            _Equity.SecurityDescription = crudRequestEquity.SecurityDescription;
-            _Equity.SecurityName = crudRequestEquity.SecurityName;
-            _Equity.HasPosition = crudRequestEquity.HasPosition;
-            _Equity.IsActiveSecurity = crudRequestEquity.IsActiveSecurity;
-            _Equity.LotSize = crudRequestEquity.LotSize;
-            _Equity.BbgUniqueName = crudRequestEquity.BbgUniqueName;
-            _Equity.Cusip = crudRequestEquity.Cusip;
-            _Equity.Isin = crudRequestEquity.Isin;
-            _Equity.Sedol = crudRequestEquity.Sedol;
-            _Equity.BloombergTicker = crudRequestEquity.BloombergTicker;
-            _Equity.BloombergUniqueId = crudRequestEquity.BloombergUniqueId;
-            _Equity.BbgGlobalId = crudRequestEquity.BbgGlobalId;
-            _Equity.TickerAndExchange = crudRequestEquity.TickerAndExchange;
-            _Equity.IsAdrFlag = crudRequestEquity.IsAdrFlag;
-            _Equity.AdrUnderlyingTicker = crudRequestEquity.AdrUnderlyingTicker;
-            _Equity.AdrUnderlyingCurrency = crudRequestEquity.AdrUnderlyingCurrency;
-            _Equity.SharesPerAdr = crudRequestEquity.SharesPerAdr;
-            _Equity.IpoDate = crudRequestEquity.IpoDate;
-            _Equity.PricingCurrency = crudRequestEquity.PricingCurrency;
-            _Equity.SettleDays = crudRequestEquity.SettleDays;
-            _Equity.TotalSharesOutstanding = crudRequestEquity.TotalSharesOutstanding;
-            _Equity.VotingRightsPerShare = crudRequestEquity.VotingRightsPerShare;
-            _Equity.AverageVolume20d = crudRequestEquity.AverageVolume20d;
-            _Equity.Beta = crudRequestEquity.Beta;
-            _Equity.ShortInterest = crudRequestEquity.ShortInterest;
-            _Equity.ReturnYtd = crudRequestEquity.ReturnYtd;
-            _Equity.Volatility90d = crudRequestEquity.Volatility90d;
-            _Equity.PfAssetClass = crudRequestEquity.PfAssetClass;
-            _Equity.PfCountry = crudRequestEquity.PfCountry;
-            _Equity.PfCreditRating = crudRequestEquity.PfCreditRating;
-            _Equity.PfInstrument = crudRequestEquity.PfInstrument;
-            _Equity.PfLiquidityProfile = crudRequestEquity.PfLiquidityProfile;
-            _Equity.PfMaturity = crudRequestEquity.PfMaturity;
-            _Equity.PfNaicsCode = crudRequestEquity.PfNaicsCode;
-            _Equity.PfRegion = crudRequestEquity.PfRegion;
-            _Equity.PfSector = crudRequestEquity.PfSector;
-            _Equity.PfSubAssetClass = crudRequestEquity.PfSubAssetClass;
-            _Equity.CountryOfIssuance = crudRequestEquity.CountryOfIssuance;
-            _Equity.Exchange = crudRequestEquity.Exchange;
-            _Equity.Issuer = crudRequestEquity.Issuer;
-            _Equity.IssueCurrency = crudRequestEquity.IssueCurrency;
-            _Equity.TradingCurrency = crudRequestEquity.TradingCurrency;
-            _Equity.BbgIndustrySubGroup = crudRequestEquity.BbgIndustrySubGroup;
-            _Equity.BloombergIndustryGroup = crudRequestEquity.BloombergIndustryGroup;
-            _Equity.BloombergSector = crudRequestEquity.BloombergSector;
-            _Equity.CountryOfIncorporation = crudRequestEquity.CountryOfIncorporation;
-            _Equity.RiskCurrency = crudRequestEquity.RiskCurrency;
-            _Equity.OpenPrice = crudRequestEquity.OpenPrice;
-            _Equity.ClosePrice = crudRequestEquity.ClosePrice;
-            _Equity.Volume = crudRequestEquity.Volume;
-            _Equity.LastPrice = crudRequestEquity.LastPrice;
-            _Equity.AskPrice = crudRequestEquity.AskPrice;
-            _Equity.BidPrice = crudRequestEquity.BidPrice;
-            _Equity.PeRatio = crudRequestEquity.PeRatio;
-            _Equity.DividendDeclaredDate = crudRequestEquity.DividendDeclaredDate;
-            _Equity.DividendExDate = crudRequestEquity.DividendExDate;
-            _Equity.DividendRecordDate = crudRequestEquity.DividendRecordDate;
-            _Equity.DividendPayDate = crudRequestEquity.DividendPayDate;
-            _Equity.DividendAmount = crudRequestEquity.DividendAmount;
-            _Equity.Frequency = crudRequestEquity.Frequency;
-            _Equity.DividendType = crudRequestEquity.DividendType;
-            // await _DBContext.Equities.AddAsync(_Equity);
-            await _DBContext.SaveChangesAsync();
-            return Ok(_Equity);
-        }
-        return NotFound();
-        // if (_Equity == null) return NotFound();
-    }
-
-
-    ////////////////////////////
-
-
-
-
-
-
-
-    //  create equity is still remaining
-
-
-
-
-
-    //////////////////////
     [HttpPost]
     [Route("[action]")]
     public async Task<IActionResult> CreateEquity(CRUDRequestEquity crudRequestEquity)
@@ -199,6 +107,82 @@ public class EquityDataController : ControllerBase
         await _DBContext.Equities.AddAsync(_Equity);
         await _DBContext.SaveChangesAsync();
         return Ok(_Equity);
+    }
+
+    [HttpPatch]
+    [Route("[action]")]
+    public async Task<IActionResult> UpdateEquity(string _SecurityId, CRUDRequestEquity crudRequestEquity)
+    {
+        var _Equity = await _DBContext.Equities.FindAsync(_SecurityId);
+        if (_Equity != null)
+        {
+            _Equity.SecurityDescription = crudRequestEquity.SecurityDescription;
+            _Equity.SecurityName = crudRequestEquity.SecurityName;
+            _Equity.HasPosition = crudRequestEquity.HasPosition;
+            _Equity.IsActiveSecurity = crudRequestEquity.IsActiveSecurity;
+            _Equity.LotSize = crudRequestEquity.LotSize;
+            _Equity.BbgUniqueName = crudRequestEquity.BbgUniqueName;
+            _Equity.Cusip = crudRequestEquity.Cusip;
+            _Equity.Isin = crudRequestEquity.Isin;
+            _Equity.Sedol = crudRequestEquity.Sedol;
+            _Equity.BloombergTicker = crudRequestEquity.BloombergTicker;
+            _Equity.BloombergUniqueId = crudRequestEquity.BloombergUniqueId;
+            _Equity.BbgGlobalId = crudRequestEquity.BbgGlobalId;
+            _Equity.TickerAndExchange = crudRequestEquity.TickerAndExchange;
+            _Equity.IsAdrFlag = crudRequestEquity.IsAdrFlag;
+            _Equity.AdrUnderlyingTicker = crudRequestEquity.AdrUnderlyingTicker;
+            _Equity.AdrUnderlyingCurrency = crudRequestEquity.AdrUnderlyingCurrency;
+            _Equity.SharesPerAdr = crudRequestEquity.SharesPerAdr;
+            _Equity.IpoDate = crudRequestEquity.IpoDate;
+            _Equity.PricingCurrency = crudRequestEquity.PricingCurrency;
+            _Equity.SettleDays = crudRequestEquity.SettleDays;
+            _Equity.TotalSharesOutstanding = crudRequestEquity.TotalSharesOutstanding;
+            _Equity.VotingRightsPerShare = crudRequestEquity.VotingRightsPerShare;
+            _Equity.AverageVolume20d = crudRequestEquity.AverageVolume20d;
+            _Equity.Beta = crudRequestEquity.Beta;
+            _Equity.ShortInterest = crudRequestEquity.ShortInterest;
+            _Equity.ReturnYtd = crudRequestEquity.ReturnYtd;
+            _Equity.Volatility90d = crudRequestEquity.Volatility90d;
+            _Equity.PfAssetClass = crudRequestEquity.PfAssetClass;
+            _Equity.PfCountry = crudRequestEquity.PfCountry;
+            _Equity.PfCreditRating = crudRequestEquity.PfCreditRating;
+            _Equity.PfInstrument = crudRequestEquity.PfInstrument;
+            _Equity.PfLiquidityProfile = crudRequestEquity.PfLiquidityProfile;
+            _Equity.PfMaturity = crudRequestEquity.PfMaturity;
+            _Equity.PfNaicsCode = crudRequestEquity.PfNaicsCode;
+            _Equity.PfRegion = crudRequestEquity.PfRegion;
+            _Equity.PfSector = crudRequestEquity.PfSector;
+            _Equity.PfSubAssetClass = crudRequestEquity.PfSubAssetClass;
+            _Equity.CountryOfIssuance = crudRequestEquity.CountryOfIssuance;
+            _Equity.Exchange = crudRequestEquity.Exchange;
+            _Equity.Issuer = crudRequestEquity.Issuer;
+            _Equity.IssueCurrency = crudRequestEquity.IssueCurrency;
+            _Equity.TradingCurrency = crudRequestEquity.TradingCurrency;
+            _Equity.BbgIndustrySubGroup = crudRequestEquity.BbgIndustrySubGroup;
+            _Equity.BloombergIndustryGroup = crudRequestEquity.BloombergIndustryGroup;
+            _Equity.BloombergSector = crudRequestEquity.BloombergSector;
+            _Equity.CountryOfIncorporation = crudRequestEquity.CountryOfIncorporation;
+            _Equity.RiskCurrency = crudRequestEquity.RiskCurrency;
+            _Equity.OpenPrice = crudRequestEquity.OpenPrice;
+            _Equity.ClosePrice = crudRequestEquity.ClosePrice;
+            _Equity.Volume = crudRequestEquity.Volume;
+            _Equity.LastPrice = crudRequestEquity.LastPrice;
+            _Equity.AskPrice = crudRequestEquity.AskPrice;
+            _Equity.BidPrice = crudRequestEquity.BidPrice;
+            _Equity.PeRatio = crudRequestEquity.PeRatio;
+            _Equity.DividendDeclaredDate = crudRequestEquity.DividendDeclaredDate;
+            _Equity.DividendExDate = crudRequestEquity.DividendExDate;
+            _Equity.DividendRecordDate = crudRequestEquity.DividendRecordDate;
+            _Equity.DividendPayDate = crudRequestEquity.DividendPayDate;
+            _Equity.DividendAmount = crudRequestEquity.DividendAmount;
+            _Equity.Frequency = crudRequestEquity.Frequency;
+            _Equity.DividendType = crudRequestEquity.DividendType;
+            // await _DBContext.Equities.AddAsync(_Equity);
+            await _DBContext.SaveChangesAsync();
+            return Ok(_Equity);
+        }
+        return NotFound();
+        // if (_Equity == null) return NotFound();
     }
 
     [HttpDelete]
